@@ -140,7 +140,7 @@ volumes:
 networks:
   network:
   barsic_network:
-    name: dockervlan
+    name: barsic_network
     driver: macvlan
     driver_opts:
       parent: eth0
