@@ -140,4 +140,11 @@ volumes:
 networks:
   network:
   barsic_network:
-    external: true
+    name: dockervlan
+    driver: macvlan
+    driver_opts:
+      parent: eth0
+    ipam:
+      config:
+        - subnet: "192.168.1.0/24"
+          gateway: "192.168.1.2"
