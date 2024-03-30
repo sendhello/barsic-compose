@@ -45,7 +45,7 @@ services:
       GOOGLE_API_CLIENT_ID: ${GOOGLE_API_CLIENT_ID}
       GOOGLE_API_CLIENT_X509_CERT_URL: ${GOOGLE_API_CLIENT_X509_CERT_URL}
     networks:
-      - network
+      - barsic_network
     expose:
       - "8000"
     volumes:
@@ -74,7 +74,7 @@ services:
       BARSIC_WEB_HOST: ${BARSIC_WEB_HOST}
       BARSIC_WEB_PORT: ${BARSIC_WEB_PORT}
     networks:
-      - network
+      - barsic_network
     depends_on:
       - redis
       - postgres
@@ -86,7 +86,7 @@ services:
     hostname: postgres
     image: postgres:15.2
     networks:
-      - network
+      - barsic_network
     expose:
       - "5432"
     environment:
@@ -113,7 +113,7 @@ services:
     expose:
       - "6379"
     networks:
-      - network
+      - barsic_network
     restart: always
 
   nginx:
@@ -128,7 +128,7 @@ services:
     ports:
       - "80:80"
     networks:
-      - network
+      - barsic_network
     restart: always
 
 volumes:
@@ -136,4 +136,5 @@ volumes:
   barsic_redis:
 
 networks:
-  network:
+  barsic_network:
+    external: true
