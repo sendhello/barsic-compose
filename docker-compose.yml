@@ -5,7 +5,7 @@ services:
   barsic-web:
     container_name: barsic-web
     hostname: barsic-web
-    image: sendhello/barsic3-api:latest
+    image: sendhello/barsic3-api:${BARSIC_WEB_VERSION}
     environment:
       DEBUG: ${DEBUG}
       PROJECT_NAME: ${PROJECT_NAME}
@@ -60,7 +60,7 @@ services:
   barsic-bot:
     container_name: barsic-bot
     hostname: barsic-bot
-    image: sendhello/barsic-bot:latest
+    image: sendhello/barsic-bot:${BARSIC_BOT_VERSION}
     environment:
       DEBUG: ${DEBUG}
       PROJECT_NAME: ${PROJECT_NAME}
