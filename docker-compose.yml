@@ -5,7 +5,7 @@ services:
   barsic-web:
     container_name: barsic-web
     hostname: barsic-web
-    image: sendhello/barsic3-api:pr-1
+    image: sendhello/barsic3-api:latest
     environment:
       DEBUG: ${DEBUG}
       PROJECT_NAME: ${PROJECT_NAME}
@@ -46,8 +46,8 @@ services:
       GOOGLE_API_CLIENT_X509_CERT_URL: ${GOOGLE_API_CLIENT_X509_CERT_URL}
     networks:
       - network
-    ports:
-      - "8000:8000"
+    expose:
+      - "8000"
     volumes:
       - ./reports:/opt/app/reports/
     depends_on:
@@ -58,7 +58,7 @@ services:
   barsic-bot:
     container_name: barsic-bot
     hostname: barsic-bot
-    image: sendhello/barsic-bot:pr-2
+    image: sendhello/barsic-bot:latest
     environment:
       DEBUG: ${DEBUG}
       PROJECT_NAME: ${PROJECT_NAME}
@@ -87,8 +87,8 @@ services:
     image: postgres:15.2
     networks:
       - network
-    ports:
-      - "5433:5432"
+    expose:
+      - "5432"
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -110,8 +110,8 @@ services:
       ALLOW_EMPTY_PASSWORD: ${ALLOW_EMPTY_PASSWORD}
     volumes:
       - barsic_redis:/data
-    ports:
-      - "6379:6379"
+    expose:
+      - "6379"
     networks:
       - network
     restart: always
