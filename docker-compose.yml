@@ -140,4 +140,11 @@ volumes:
 networks:
   network:
   vlan:
-    external: true
+    driver: ipvlan
+    driver_opts:
+      ipvlan_mode: l2
+      parent: eth0
+    ipam:
+      config:
+        - subnet: "192.168.1.0/24"
+          gateway: "192.168.1.2"
