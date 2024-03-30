@@ -46,8 +46,8 @@ services:
       GOOGLE_API_CLIENT_X509_CERT_URL: ${GOOGLE_API_CLIENT_X509_CERT_URL}
     networks:
       network:
-      barsic_network:
-        ipv4_address: 192.168.1.241
+      vlan:
+        ipv4_address: 192.168.1.232
     expose:
       - "8000"
     volumes:
@@ -139,12 +139,5 @@ volumes:
 
 networks:
   network:
-  barsic_network:
-    name: barsic_network
-    driver: macvlan
-    driver_opts:
-      parent: eth0
-    ipam:
-      config:
-        - subnet: "192.168.1.0/24"
-          gateway: "192.168.1.2"
+  vlan:
+    external: true

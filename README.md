@@ -9,7 +9,7 @@ docker network create -d macvlan \
     --subnet=192.168.1.0/24 \
     --gateway=192.168.1.2  \
     -o parent=eth0 \
-     barsic-network
+     vlan
      
 # Запуск контейнеров
 docker compose up
