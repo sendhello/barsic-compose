@@ -63,9 +63,10 @@ services:
     image: sendhello/barsic-bot:${BARSIC_BOT_VERSION}
     environment:
       DEBUG: ${DEBUG}
-      PROJECT_NAME: ${PROJECT_NAME}
       REDIS_HOST: ${REDIS_HOST}
       REDIS_PORT: ${REDIS_PORT}
+      CACHE_TIME: ${CACHE_TIME}
+      PROJECT_NAME: ${PROJECT_NAME}
       POSTGRES_HOST: ${POSTGRES_HOST}
       POSTGRES_PORT: ${POSTGRES_PORT}
       POSTGRES_USER: ${POSTGRES_USER}
