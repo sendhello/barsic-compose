@@ -79,6 +79,7 @@ services:
       USER_PASSWORD: ${USER_PASSWORD}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD}
       WRITE_PASSWORD_LIMIT_PER_DAY: ${WRITE_PASSWORD_LIMIT_PER_DAY}
+      CHECKBOX_SIZE: ${CHECKBOX_SIZE}
     networks:
       network:
     depends_on:
