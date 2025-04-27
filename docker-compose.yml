@@ -145,7 +145,6 @@ services:
     command: >
       --interval 300
       --cleanup
-      --label-enable
     restart: always
 
 volumes:
