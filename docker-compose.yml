@@ -139,6 +139,20 @@ services:
       network:
     restart: always
 
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: >
+      --interval 900               # проверять обновления каждый час
+      --cleanup                    # удалять старые образы после обновления
+      --label-enable               # обновлять только контейнеры с лейблом 
+      --scope barsic               # (опционально) следить только за контейнерами, имя которых начинается на barsic
+    networks:
+      network:
+
 volumes:
   barsic_pg:
   barsic_redis:
