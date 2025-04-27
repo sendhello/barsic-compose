@@ -146,7 +146,6 @@ services:
       --interval 300
       --cleanup
       --label-enable
-      --scope barsic
     restart: always
 
 volumes:
